@@ -1,5 +1,6 @@
 # todo-task
-steps to run application:
+**steps to run application:**
+
 1.Clone the Repositoryto your local machine.
 
 2. Navigate to the Project Directory:
@@ -39,12 +40,14 @@ Ensure your MongoDB server is running. If it's not running on the default port (
 
 Visit http://localhost:3000 in your web browser to test your MERN stack application. You can register, log in, and use its features.
 
-*AUTHENTICATION FLOW :*
+***AUTHENTICATION FLOW :***
+
 1.User can register with an email and password.
 2.User can log in with their credentials.
 3.Upon successful login, a JSON Web Token (JWT) is issued and stored as a secure cookie.
 4.The JWT is used to authenticate and authorize the user for protected routes.
-*Security Measures*:
+***Security Measures*:**
+
 1.Password hashing with bcrypt.
 2.Secure JWT storage and transmission.
 3.Cross-Origin Resource Sharing (CORS) configuration.
