@@ -17,7 +17,7 @@ function Home() {
 
   const getUserInfo = async () => {
     try {
-      const { data } = await axios.get('/api/users/me/info');
+      const { data } = await axios.get('https://todo-backend-es98.onrender.com/api/users/me/info');
       setUserData(data);
     } catch (err) {
       if (err.status === 401) {

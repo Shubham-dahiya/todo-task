@@ -16,7 +16,7 @@ function TaskItem({ task, deleteTask, gettask }) {
   const handleCheckboxClick = async () => {
     try {
       setIsLoading(true);
-      await axios.put(`/api/tasks/${task._id}`, {
+      await axios.put(`https://todo-backend-es98.onrender.com/api/tasks/${task._id}`, {
         completed: !isCompleted,
       });
       setIsCompleted(!isCompleted);
@@ -30,7 +30,7 @@ function TaskItem({ task, deleteTask, gettask }) {
   const edittask = async (val) => {
     try {
       setIsLoading(true);
-      await axios.put(`/api/tasks/${task._id}`, {
+      await axios.put(`https://todo-backend-es98.onrender.com/api/tasks/${task._id}`, {
         title: val,
       });
       // setIsCompleted(!isCompleted);

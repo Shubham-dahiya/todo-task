@@ -14,7 +14,7 @@ function TaskList() {
 
   const getTasks = async () => {
     try {
-      const { data } = await axios.get('/api/tasks/mytasks');
+      const { data } = await axios.get('https://todo-backend-es98.onrender.com/api/tasks/mytasks');
       setTaskList(
         data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
       );
@@ -38,7 +38,7 @@ function TaskList() {
       return;
     }
     try {
-      const { data } = await axios.post('/api/tasks/', {
+      const { data } = await axios.post('https://todo-backend-es98.onrender.com/api/tasks/', {
         title: newTask,
       });
       toast.success('New task added');
@@ -52,7 +52,7 @@ function TaskList() {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`/api/tasks/${id}`);
+      await axios.delete(`https://todo-backend-es98.onrender.com/api/tasks/${id}`);
       toast.success('Task deleted');
       setTaskList(taskList.filter((task) => task._id !== id));
     } catch (err) {
