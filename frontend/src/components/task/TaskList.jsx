@@ -58,7 +58,7 @@ function TaskList() {
       console.log(err);
     }
   };
-
+  console.log(taskList);
   return (
     <div>
       <div className={classes.topBar}>
@@ -77,6 +77,7 @@ function TaskList() {
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
             placeholder="Task name"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
           <button type="submit">Add</button>
@@ -85,8 +86,10 @@ function TaskList() {
       {taskList.length > 0 ? (
         <table className={classes.taskList_table}>
           <tbody>
-            {taskList.map((task) => (
-              <TaskItem key={task._id} task={task} deleteTask={deleteTask} />
+            {taskList.map((task, i) => (
+              // eslint-disable-next-line max-len
+              // eslint-disable-next-line max-len, no-param-reassign, no-shadow, array-callback-return, eqeqeq
+              <TaskItem gettask={getTasks} key={task._id} task={task} deleteTask={deleteTask} />
             ))}
           </tbody>
         </table>
@@ -98,3 +101,4 @@ function TaskList() {
 }
 
 export default TaskList;
+// settask={(val) => { setTaskList((prev) => { prev.map((task, j) => { if (i === j) { console.log('found'); task.title = val; } }); return prev; }); }}

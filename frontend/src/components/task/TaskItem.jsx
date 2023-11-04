@@ -8,9 +8,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import classes from './TaskItem.module.scss';
 
-function TaskItem({ task, deleteTask }) {
+function TaskItem({ task, deleteTask, gettask }) {
   const [isCompleted, setIsCompleted] = useState(task.completed);
   const [isLoading, setIsLoading] = useState(false);
+  const [editmode, seteditmode] = useState(false);
 
   const handleCheckboxClick = async () => {
     try {
@@ -26,14 +27,28 @@ function TaskItem({ task, deleteTask }) {
       setIsLoading(false);
     }
   };
-
+  const edittask = async (val) => {
+    try {
+      setIsLoading(true);
+      await axios.put(`/api/tasks/${task._id}`, {
+        title: val,
+      });
+      // setIsCompleted(!isCompleted);
+      await gettask();
+      toast.success('Task updated successfully');
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <tr className={classes.task_item}>
       <td className={classes.task_name}>
         <div className={classes.checkbox} onClick={handleCheckboxClick}>
           <input type="checkbox" checked={isCompleted} disabled={isLoading} />
         </div>
-        <p>{task.title}</p>
+        <p>{editmode ? <input type="text" value={task.title} onChange={(e) => { edittask(e.target.value); }} /> : task.title}</p>
       </td>
       <td>{isCompleted ? 'Complete' : 'Incomplete'}</td>
       <td>{moment(task.createdAt).format('MMM Do YY')}</td>
@@ -44,6 +59,15 @@ function TaskItem({ task, deleteTask }) {
           onClick={() => deleteTask(task._id)}
         >
           Delete
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          className={classes.deleteBtn}
+          onClick={() => seteditmode(!editmode)}
+        >
+          {editmode?"Done":"Edit"}
         </button>
       </td>
     </tr>
