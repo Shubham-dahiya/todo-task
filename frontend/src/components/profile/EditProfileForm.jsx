@@ -14,7 +14,7 @@ function EditProfileForm() {
 
   const getUser = async () => {
     try {
-      const { data } = await axios.get('https://todo-backend-es98.onrender.com/api/users/me');
+      const { data } = await axios.get('https://todotask-ni15.onrender.com/api/users/me');
       setUser(data);
     } catch (err) {
       console.log(err);
@@ -35,7 +35,7 @@ function EditProfileForm() {
   const editProfile = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put('https://todo-backend-es98.onrender.com/api/users/me', user);
+      const res = await axios.put('https://todotask-ni15.onrender.com/api/users/me', user);
       toast.success('Profile updated successfully');
       setUser(res.data);
     } catch (err) {
@@ -55,7 +55,7 @@ function EditProfileForm() {
           <label htmlFor="name">
             Full Name:
             <input
-              id="name"
+              name="name"
               type="text"
               placeholder="Full Name"
               autoComplete="true"
@@ -67,7 +67,7 @@ function EditProfileForm() {
           <label htmlFor="email">
             email:
             <input
-              id="email"
+              name="email"
               autoComplete="true"
               type="email"
               placeholder="email"

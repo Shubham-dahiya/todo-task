@@ -20,7 +20,7 @@ function Login() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      await axios.post('https://todo-backend-es98.onrender.com/api/auth/login', {
+      await axios.post('https://todotask-ni15.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -37,13 +37,13 @@ function Login() {
       <form className={classes.authForm} onSubmit={login}>
         <label htmlFor="email">
           email:
-          <input id="email" type="email" placeholder="email" autoComplete="true" required />
+          <input name="email" type="email" placeholder="email" autoComplete="true" required />
         </label>
         <br />
         <label htmlFor="password">
           password:
           <input
-            id="password"
+            name="password"
             type="password"
             placeholder="password"
             autoComplete="true"
