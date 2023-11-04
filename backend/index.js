@@ -52,9 +52,9 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+// }
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port ${PORT}`);
