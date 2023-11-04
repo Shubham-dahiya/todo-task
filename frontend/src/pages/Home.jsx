@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -16,7 +17,7 @@ function Home() {
 
   const getUserInfo = async () => {
     try {
-      const { data } = await axios.get(`/api/users/me/info`);
+      const { data } = await axios.get('/api/users/me/info');
       setUserData(data);
     } catch (err) {
       if (err.status === 401) {

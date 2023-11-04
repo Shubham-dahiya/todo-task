@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import { Navigate, Outlet } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+/* eslint-disable no-empty-pattern */
+/* eslint-disable react/react-in-jsx-scope */
+import { useEffect, useState } from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
-function PrivateRoutes ({})  {
-  const {auth} = useAuth();
+function PrivateRoutes({}) {
+  const { auth } = useAuth();
 
-  if(auth === undefined) return "loading...";
+  if (auth === undefined) return 'loading...';
 
-  return auth === true ? <Outlet /> : <Navigate to='/auth' />
+  return auth === true ? <Outlet /> : <Navigate to="/auth" />;
 }
 
 export default PrivateRoutes;

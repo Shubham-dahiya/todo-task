@@ -67,7 +67,7 @@ function TaskItem({ task, deleteTask, gettask }) {
           className={classes.deleteBtn}
           onClick={() => seteditmode(!editmode)}
         >
-          {editmode?"Done":"Edit"}
+          {editmode ? 'Done' : 'Edit'}
         </button>
       </td>
     </tr>

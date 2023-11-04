@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/react-in-jsx-scope */
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
@@ -7,7 +10,7 @@ export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(undefined);
 
   const verifyAuth = async () => {
-    const isLoggedIn = await axios.get(`/api/auth/is_logged_in`);
+    const isLoggedIn = await axios.get('/api/auth/is_logged_in');
     setAuth(isLoggedIn.data);
     return isLoggedIn.data;
   };
