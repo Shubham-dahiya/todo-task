@@ -14,7 +14,7 @@ function EditProfileForm() {
 
   const getUser = async () => {
     try {
-      const { data } = await axios.get(`/api/users/me`);
+      const { data } = await axios.get('/api/users/me');
       setUser(data);
     } catch (err) {
       console.log(err);
@@ -35,7 +35,7 @@ function EditProfileForm() {
   const editProfile = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`/api/users/me`, user);
+      const res = await axios.put('/api/users/me', user);
       toast.success('Profile updated successfully');
       setUser(res.data);
     } catch (err) {
@@ -55,9 +55,10 @@ function EditProfileForm() {
           <label htmlFor="name">
             Full Name:
             <input
-              name="name"
+              id="name"
               type="text"
               placeholder="Full Name"
+              autoComplete="true"
               required
               value={user.name}
               onChange={updateUserInfo}
@@ -66,7 +67,8 @@ function EditProfileForm() {
           <label htmlFor="email">
             email:
             <input
-              name="email"
+              id="email"
+              autoComplete="true"
               type="email"
               placeholder="email"
               required

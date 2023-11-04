@@ -13,7 +13,7 @@ function Login() {
     if (auth) {
       navigate('/');
     }
-  }, [auth]);
+  }, [auth, navigate]);
 
   const login = async (e) => {
     e.preventDefault();
@@ -37,15 +37,16 @@ function Login() {
       <form className={classes.authForm} onSubmit={login}>
         <label htmlFor="email">
           email:
-          <input name="email" type="email" placeholder="email" required />
+          <input id="email" type="email" placeholder="email" autoComplete="true" required />
         </label>
         <br />
         <label htmlFor="password">
           password:
           <input
-            name="password"
+            id="password"
             type="password"
             placeholder="password"
+            autoComplete="true"
             required
           />
         </label>

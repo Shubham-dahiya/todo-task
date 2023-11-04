@@ -3,7 +3,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
+import cors from 'cors'; 
 import allRoutes from './routes/index.js';
 
 const app = express();
@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use('/api', allRoutes);
 
 // error handler
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   const status = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
   res.status(status).json({ message, stack: err.stack });

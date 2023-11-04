@@ -13,7 +13,7 @@ function Register() {
       password: e.target.password.value,
     };
     try {
-      await axios.post(`/api/auth/register`, user);
+      await axios.post('/api/auth/register', user);
       toast.success('Registered successfully');
     } catch (err) {
       console.log(err);
@@ -27,17 +27,17 @@ function Register() {
       <form className={classes.authForm} onSubmit={register}>
         <label htmlFor="name">
           Full Name:
-          <input name="name" type="text" placeholder="Full Name" required />
+          <input id="name" type="text" placeholder="Full Name" autoComplete="true" required />
         </label>
         <label htmlFor="email">
           email:
-          <input name="email" type="email" placeholder="email" required />
+          <input id="email" type="email" placeholder="email" autoComplete="true" required />
         </label>
         <br />
         <label htmlFor="password">
           password:
           <input
-            name="password"
+            id="password"
             type="password"
             placeholder="password"
             required
